@@ -1,0 +1,6 @@
+name: DFStart
+version: '1.0.0'
+
+main: uk.co.nikodem.dFStart.DFStart
+api-version: '26.3'
+load: POSTWORLD
