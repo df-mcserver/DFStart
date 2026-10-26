@@ -1,0 +1,8 @@
+server-started: false
+pvp-enabled: false
+nether-enabled: false
+end-enabled: false
+
+start-worldborder-size: 30
+end-worldborder-size: 10000
+world-name: "world"

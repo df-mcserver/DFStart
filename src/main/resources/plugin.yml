@@ -4,3 +4,21 @@ version: '1.0.0'
 main: uk.co.nikodem.dFStart.DFStart
 api-version: '26.3'
 load: POSTWORLD
+
+commands:
+  startserver:
+    description: starts server
+    usage: /startserver
+    permission: dfstart.admin
+  enablepvp:
+    description: enables pvp
+    usage: /enablepvp
+    permission: dfstart.admin
+  enablenether:
+    description: enables nether
+    usage: /enablenether
+    permission: dfstart.admin
+  enableend:
+    description: enables end
+    usage: /enableend
+    permission: dfstart.admin
