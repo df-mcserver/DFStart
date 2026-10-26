@@ -7,6 +7,9 @@ import org.bukkit.World;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
+import org.bukkit.event.entity.EntityDamageByEntityEvent;
+import org.bukkit.event.entity.EntityDamageEvent;
+import org.bukkit.event.entity.FoodLevelChangeEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
 
@@ -20,6 +23,7 @@ public class ServerLockdownManager implements Listener {
             if (world != null) {
                 world.getWorldBorder().setCenter(world.getSpawnLocation());
                 world.getWorldBorder().changeSize(ConfigManager.getWorldBorderStartSize(), 0);
+                world.setTime(23500L);
             }
             Bukkit.getServer().getServerTickManager().setFrozen(true);
         }
@@ -64,6 +68,27 @@ public class ServerLockdownManager implements Listener {
         if (!ConfigManager.isServerEnabled()) {
             event.setCancelled(true);
             plr.sendActionBar(interactErrorMessage);
+        }
+    }
+
+    @EventHandler
+    public void onDamage(EntityDamageEvent event) {
+        if (!ConfigManager.isServerEnabled()) {
+            event.setCancelled(true);
+        }
+    }
+
+    @EventHandler
+    public void onAttack(EntityDamageByEntityEvent event) {
+        if (!ConfigManager.isServerEnabled()) {
+            event.setCancelled(true);
+        }
+    }
+
+    @EventHandler
+    public void onFoodLevelChange(FoodLevelChangeEvent event) {
+        if (!ConfigManager.isServerEnabled()) {
+            event.setCancelled(true);
         }
     }
 }
