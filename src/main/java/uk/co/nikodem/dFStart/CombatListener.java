@@ -14,7 +14,7 @@ public class CombatListener implements Listener {
     public void onHit(EntityDamageByEntityEvent event) {
         if (event.getEntity() instanceof Player victim) {
             if (event.getDamageSource().getCausingEntity() instanceof Player attacker) {
-                if (ConfigManager.isPVPEnabled()) {
+                if (!ConfigManager.isPVPEnabled()) {
                     event.setCancelled(true);
                     attacker.sendMessage(pvpErrorMessage);
                 }
